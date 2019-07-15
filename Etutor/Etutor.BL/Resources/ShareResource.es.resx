@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A user with this login already exists." xml:space="preserve">
+    <value>Un usuario con este inicio de sesión ya existe.</value>
+  </data>
+  <data name="An unknown failure has occurred." xml:space="preserve">
+    <value>Se ha producido un error desconocido.</value>
+  </data>
+  <data name="Email '{0}' is already taken." xml:space="preserve">
+    <value>El correo electrónico '{0}' ya está tomado.</value>
+  </data>
+  <data name="Email '{0}' is invalid." xml:space="preserve">
+    <value>El correo '{0}' es inválido.</value>
+  </data>
+  <data name="Incorrect password." xml:space="preserve">
+    <value>Contraseña incorrecta.</value>
+  </data>
+  <data name="Lockout is not enabled for this user." xml:space="preserve">
+    <value>El bloqueo no está habilitado para este usuario.</value>
+  </data>
+  <data name="Optimistic concurrency failure, object has been modified." xml:space="preserve">
+    <value>Fallo de simultaneidad optimista, el objeto ha sido modificado.</value>
+  </data>
+  <data name="Passwords must be at least {0} characters." xml:space="preserve">
+    <value>Las contraseñas deben tener al menos {0} carácteres.</value>
+  </data>
+  <data name="Passwords must have at least one digit ('0'-'9')." xml:space="preserve">
+    <value>Las contraseñas deben tener al menos un dígito ('0' - '9').</value>
+  </data>
+  <data name="Passwords must have at least one lowercase ('a'-'z')." xml:space="preserve">
+    <value>Las contraseñas deben tener al menos una letra minúscula ('a' - 'z').</value>
+  </data>
+  <data name="Passwords must have at least one non alphanumeric character." xml:space="preserve">
+    <value>Las contraseñas deben tener al menos un carácter no alfanumérico.</value>
+  </data>
+  <data name="Passwords must have at least one uppercase ('A'-'Z')." xml:space="preserve">
+    <value>Las contraseñas deben tener al menos una letra mayúscula ('A' - 'Z').</value>
+  </data>
+  <data name="Role name '{0}' is already taken." xml:space="preserve">
+    <value>El nombre de la función '{0}' ya está tomado.</value>
+  </data>
+  <data name="Role name '{0}' is invalid." xml:space="preserve">
+    <value>El nombre de la función '{0}' no es válido.</value>
+  </data>
+  <data name="User already has a password set." xml:space="preserve">
+    <value>El usuario ya tiene una contraseña establecida.</value>
+  </data>
+  <data name="User already in role '{0}'." xml:space="preserve">
+    <value>El usuario ya está en el role '{0}'.</value>
+  </data>
+  <data name="User is not in role '{0}'" xml:space="preserve">
+    <value>El usuario no está en el rol '{0}'</value>
+  </data>
+  <data name="User name '{0}' is already taken." xml:space="preserve">
+    <value>El nombre de usuario '{0}' ya está tomado.</value>
+  </data>
+  <data name="User name '{0}' is invalid, can only contain letters or digits." xml:space="preserve">
+    <value>El nombre de usuario '{0}' no es válido, solo puede contener letras o dígitos.</value>
+  </data>
+  <data name="Passwords must use at least {0} different character." xml:space="preserve">
+    <value>Las contraseñas deben usar al menos {0} carácter diferente.</value>
+  </data>
+  <data name="Email '{0}' is currently available." xml:space="preserve">
+    <value>El correo '{0}' está actualmente disponible.</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="User or password incorrect." xml:space="preserve">
+    <value>Usuario o contraseña incorrectos.</value>
+  </data>
+  <data name="'{PropertyName}' must be unique, the value already exist." xml:space="preserve">
+    <value>'{PropertyName}' debe ser único, el valor ya existe.</value>
+  </data>
+  <data name="Deletion of entity {0} failed." xml:space="preserve">
+    <value>Borrado de la entidad {0} falló.</value>
+  </data>
+  <data name="{0} was not found." xml:space="preserve">
+    <value>{0} no existe.</value>
+  </data>
+  <data name="'{0}' must have domain name equal to {1}." xml:space="preserve">
+    <value>'{0}' debe tener nombre de dominio igual a {1}.</value>
+  </data>
+  <data name="Invalid security token refresh attempt." xml:space="preserve">
+    <value>Intento inválido de refrescar token de seguridad.</value>
+  </data>
+  <data name="User Name" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Disabled user, contact administrator to obtain more information." xml:space="preserve">
+    <value>Usuario deshabilitado, contactar administrador para obtener mas información.</value>
+  </data>
+  <data name="User blocked by failed attempts, try again after {0} minutes." xml:space="preserve">
+    <value>Usuario bloqueado por intentos fallidos, intentar nuevamente en {0} minutos.</value>
+  </data>
+  <data name="Invalid change password attempt." xml:space="preserve">
+    <value>Intento de cambio de contraseña no válido.</value>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="New Password" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="Invalid get permissions attempt." xml:space="preserve">
+    <value>Intento de obtener permisos no válido.</value>
+  </data>
+  <data name="User '{0}' does not have permissions assigned to access the platform." xml:space="preserve">
+    <value>Usuario '{0}' no tiene permisos asignados para acceder a la plataforma.</value>
+  </data>
+  <data name="Menu Priority" xml:space="preserve">
+    <value>Prioridad menú</value>
+  </data>
+  <data name="Reference Key" xml:space="preserve">
+    <value>Clave de referencia</value>
+  </data>
+  <data name="Responsible Controller" xml:space="preserve">
+    <value>Controlador responsable</value>
+  </data>
+  <data name="Body" xml:space="preserve">
+    <value>Cuerpo</value>
+  </data>
+  <data name="Child Template Name" xml:space="preserve">
+    <value>Nombre plantilla hijo</value>
+  </data>
+  <data name="Email Type" xml:space="preserve">
+    <value>Tipo correo</value>
+  </data>
+  <data name="Parent Template Name" xml:space="preserve">
+    <value>Nombre plantilla padre</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Asunto</value>
+  </data>
+  <data name="'{PropertyName}' the specified template doesn't exists." xml:space="preserve">
+    <value>'{PropertyName}' la plantilla especificada no existe.</value>
+  </data>
+  <data name="The new password can not be the same as the current one." xml:space="preserve">
+    <value>La nueva contraseña no puede ser igual a la actual.</value>
+  </data>
+  <data name="Request processed correctly but an error occurred while trying to send mail to '{0}'." xml:space="preserve">
+    <value>Solicitud procesada correctamente pero ocurrio un error al intentar enviar correo a '{0}'.</value>
+  </data>
+</root>
