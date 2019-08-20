@@ -3,7 +3,13 @@ Official repository for the web version of E-Tutor.
 
 Here will be worked all the web based features of the product.
 
-#Git workflow
+## Requeriments
+- Visual Studio 2017
+- .NET Core SDK 2.2.2 and 2.2.1 installed
+- SQL Server
+
+
+# Git workflow
 
 ## Al iniciar HU
 
