@@ -92,7 +92,7 @@ namespace Etutor.Api
             services.Configure<AdConfig>(Configuration.GetSection(typeof(AdConfig).Name));
             services.Configure<SmtpConfig>(Configuration.GetSection(typeof(SmtpConfig).Name));
 
-            #region OrionDbContext
+            #region EtutorDbContext
             // Add entity framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
             {
