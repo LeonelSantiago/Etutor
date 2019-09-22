@@ -11,8 +11,8 @@ namespace Etutor.BL.Mappers
         public MappingProfile()
         {
 
-            CreateMap<Usuario, UsuarioDto>()
-            .ForMember(dto => dto.Contrasena, cfg => cfg.MapFrom<ContrasenaResolver>())
+            CreateMap<User, UserDto>()
+            .ForMember(dto => dto.Password, cfg => cfg.MapFrom<ContrasenaResolver>())
             .ReverseMap()
             .ForMember(entity => entity.PhoneNumberConfirmed, cfg => cfg.Ignore())
             .ForMember(entity => entity.UserName, cfg => cfg.MapFrom(dto => dto.Email.Split("@", StringSplitOptions.RemoveEmptyEntries)[0] ?? null));

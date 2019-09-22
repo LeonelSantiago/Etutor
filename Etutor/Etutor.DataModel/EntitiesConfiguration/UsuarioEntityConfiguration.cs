@@ -11,7 +11,7 @@ using Etutor.DataModel.DataConverter;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class UsuarioEntityConfiguration : IEntityTypeConfiguration<Usuario>
+    public class UsuarioEntityConfiguration : IEntityTypeConfiguration<User>
     {
         private readonly StoreOptions _storeOptions;
         private readonly Context.ApplicationDbContext _context;
@@ -25,96 +25,95 @@ namespace Etutor.DataModel.EntitiesConfiguration
                         ?.Value?.Stores;
             _context = context;
         }
-        public void Configure(EntityTypeBuilder<Usuario> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             var encryptPersonalData = _storeOptions?.ProtectPersonalData ?? false;
 
-            builder.ToTable("Usuarios", "MA");
+            builder.ToTable("Users");
 
             builder.Property(e => e.Id)
-                .HasColumnName("UsuarioId");
+                .HasColumnName("Id");
 
             builder.HasIndex(u => u.NormalizedUserName)
-                .HasName("IX_Nombre_Usuario")
+                .HasName("IX_Name_User")
                 .IsUnique();
 
             builder.HasIndex(u => u.NormalizedEmail)
-                .HasName("IX_Correo")
+                .HasName("IX_Email")
                 .IsUnique();
 
-            builder.Property(e => e.Nombre)
+            builder.Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(256)
                 .IsUnicode(false);
 
-            builder.Property(e => e.Apellido)
+            builder.Property(e => e.LastName)
                 .IsRequired()
                 .HasMaxLength(256)
                 .IsUnicode(false);
 
-            builder.Property(e => e.Estado)
-                .HasMaxLength(2)
+            builder.Property(e => e.Status)
                 .IsRequired()
-                .IsUnicode(false)
-                .HasDefaultValueSql("('A')");
+                .HasDefaultValue(1) 
+                .HasColumnName("Status");
 
             builder.Property(e => e.UserName)
                  .HasMaxLength(256)
-                 .HasColumnName("NombreUsuario");
+                 .HasColumnName("UserName");
 
             builder.Property(e => e.NormalizedUserName)
                  .HasMaxLength(256)
-                 .HasColumnName("NombreUsuarioNomalizado");
+                 .HasColumnName("NormalizedUserName");
 
             builder.Property(e => e.Email)
                 .HasMaxLength(256)
-                .HasColumnName("Correo");
+                .HasColumnName("Email");
 
             builder.Property(e => e.NormalizedEmail)
                  .HasMaxLength(256)
-                 .HasColumnName("CorreoNormalizado");
+                 .HasColumnName("NormalizedEmail");
 
             builder.Property(e => e.PasswordHash)
-                .HasColumnName("ContrasenaHash");
+                .HasColumnName("PasswordHash");
 
             builder.Property(e => e.SecurityStamp)
-                .HasColumnName("SelloSeguridad");
+                .HasColumnName("SecurityStamp");
 
             builder.Property(e => e.ConcurrencyStamp)
                 .IsConcurrencyToken()
-                .HasColumnName("SelloConcurrencia");
+                .HasColumnName("ConcurrencyStamp");
 
             builder.Property(e => e.PhoneNumber)
-                .HasColumnName("Celular");
+                .HasColumnName("PhoneNumber");
 
             builder.Property(e => e.PhoneNumberConfirmed)
-                .HasColumnName("CelularConfirmado");
+                .HasColumnName("PhoneNumberConfirmed");
 
             builder.Property(e => e.TwoFactorEnabled)
-                .HasColumnName("DosFactoresHabilitado");
+                .HasColumnName("TwoFactorEnabled");
 
             builder.Property(e => e.LockoutEnd)
-                .HasColumnName("BloqueoFinal");
+                .HasColumnName("LockoutEnd");
 
             builder.Property(e => e.LockoutEnabled)
-                .HasColumnName("BloqueoHabilitado");
+                .HasColumnName("LockoutEnabled");
 
             builder.Property(e => e.AccessFailedCount)
-                .HasColumnName("ConteoAccesoFallido");
+                .HasColumnName("AccessFailedCount");
 
-            builder.HasMany<UsuarioClaim>()
+            builder.HasMany<UserClaim>()
                 .WithOne().HasForeignKey(uc => uc.UserId).IsRequired();
 
-            builder.HasMany<UsuarioLogin>()
+            builder.HasMany<UserLogin>()
                 .WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
 
-            builder.HasMany<UsuarioToken>()
+            builder.HasMany<UserToken>()
                 .WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
 
             if (encryptPersonalData)
             {
                 var converter = new PersonalDataConverter(_context.GetService<IPersonalDataProtector>());
-                var personalDataProps = typeof(Usuario).GetProperties().Where(
+                var personalDataProps = typeof(User).GetProperties().Where(
                                 prop => Attribute.IsDefined(prop, typeof(ProtectedPersonalDataAttribute)));
                 foreach (var p in personalDataProps)
                 {

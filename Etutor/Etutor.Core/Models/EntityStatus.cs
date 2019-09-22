@@ -4,8 +4,8 @@ namespace Etutor.Core.Models
 {
     public static class EntityStatus
     {
-        public const string Activo = "A";
-        public const string Inactivo = "I";
-        public const string Pendiente = "P";
+        public const int Active = 1;
+        public const int Inactive = 0;
+        public const int Pending = 2;
     }
 }

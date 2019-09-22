@@ -4,17 +4,17 @@ using Etutor.DataModel.Entities;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class UsuarioRolEntityConfiguration : IEntityTypeConfiguration<UsuarioRol>
+    public class UsuarioRolEntityConfiguration : IEntityTypeConfiguration<UserRole>
     {
-        public void Configure(EntityTypeBuilder<UsuarioRol> builder)
+        public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            builder.ToTable("UsuarioRoles", "MGP");
+            builder.ToTable("UsersRoles");
 
             builder.Property(e => e.UserId)
-                .HasColumnName("UsuarioId");
+                .HasColumnName("UserId");
 
             builder.Property(e => e.RoleId)
-                .HasColumnName("RolId");
+                .HasColumnName("RoleId");
         }
     }
 }

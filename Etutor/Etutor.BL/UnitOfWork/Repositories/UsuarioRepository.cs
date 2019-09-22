@@ -13,15 +13,15 @@ using System.Threading.Tasks;
 
 namespace Etutor.BL.UnitOfWork.Repositories
 {
-    public class UsuarioRepository : EntityBaseRepository<Usuario>, IUsuarioRepository
+    public class UsuarioRepository : EntityBaseRepository<User>, IUsuarioRepository
     {
         protected readonly ApplicationDbContext _context;
-        protected readonly UserManager<Usuario> _userManager;
+        protected readonly UserManager<User> _userManager;
         protected readonly IConfiguration _configuration;
 
         public UsuarioRepository(ApplicationDbContext context,
-                                 UserManager<Usuario> userManager,
-                                FluentValidation.IValidator<Usuario> validator,
+                                 UserManager<User> userManager,
+                                FluentValidation.IValidator<User> validator,
                                 IConfiguration configuration)
         : base(context, validator)
         {
@@ -32,27 +32,27 @@ namespace Etutor.BL.UnitOfWork.Repositories
 
 
 
-        public virtual async Task<List<Claim>> GetClaimsAsync(Usuario entity)
+        public virtual async Task<List<Claim>> GetClaimsAsync(User entity)
         {
             var claims = await _userManager.GetClaimsAsync(entity);
             return claims.ToList();
         }
 
-        public virtual async Task<Usuario> FindByNameAsync(string userName)
+        public virtual async Task<User> FindByNameAsync(string userName)
         {
             var entity = await _userManager.FindByNameAsync(userName);
-            if (entity == null) throw new NotFoundException($"{typeof(Usuario).Name} '{userName}'");
+            if (entity == null) throw new NotFoundException($"{typeof(User).Name} '{userName}'");
             return entity;
         }
 
-        public virtual async Task<Usuario> FindAsync(int id)
+        public virtual async Task<User> FindAsync(int id)
         {
             var entity = await _userManager.FindByIdAsync(id.ToString());
-            if (entity == null) throw new NotFoundException($"\"{typeof(Usuario).Name}\" ({id})");
+            if (entity == null) throw new NotFoundException($"\"{typeof(User).Name}\" ({id})");
             return entity;
         }
 
-        public virtual async Task AddAsync(Usuario entity, string password)
+        public virtual async Task AddAsync(User entity, string password)
         {
             var results = _validator.Validate(entity);
             if (!results.IsValid) throw new ValidationException(results.Errors.ToMessage());
@@ -66,7 +66,7 @@ namespace Etutor.BL.UnitOfWork.Repositories
                 throw new ValidationException(result.Errors.ToMessage());
         }
 
-        public virtual async Task UpdateAsync(Usuario entity, string password)
+        public virtual async Task UpdateAsync(User entity, string password)
         {
             var results = _validator.Validate(entity);
             if (!results.IsValid) throw new ValidationException(results.Errors.ToMessage());
@@ -88,7 +88,7 @@ namespace Etutor.BL.UnitOfWork.Repositories
                 throw new ValidationException(result.Errors.ToMessage());
         }
 
-        public virtual async Task UpdateAsync(Usuario entity)
+        public virtual async Task UpdateAsync(User entity)
         {
             var results = _validator.Validate(entity);
             if (!results.IsValid) throw new ValidationException(results.Errors.ToMessage());
@@ -109,9 +109,9 @@ namespace Etutor.BL.UnitOfWork.Repositories
             if (!result.Succeeded)
                 throw new ValidationException(result.Errors.ToMessage());
 
-            if (!user.UltimoAcceso.HasValue)
+            if (!user.LastAccess.HasValue)
             {
-                user.UltimoAcceso = DateTime.Now;
+                user.LastAccess = DateTime.Now;
                 await UpdateAsync(user);
             }
         }

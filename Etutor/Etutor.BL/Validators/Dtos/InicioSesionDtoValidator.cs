@@ -5,15 +5,15 @@ using Etutor.BL.Resources;
 
 namespace Etutor.BL.Validators.Dtos
 {
-    public class InicioSesionDtoValidator : AbstractValidator<InicioSesionDto>
+    public class InicioSesionDtoValidator : AbstractValidator<LoginDto>
     {
         public InicioSesionDtoValidator(IStringLocalizer<ShareResource> localizer)
         {
-            RuleFor(dto => dto.Usuario).NotEmpty()
+            RuleFor(dto => dto.User).NotEmpty()
                                 .MaximumLength(256)
                                 .WithName(localizer["User name"]);
 
-            RuleFor(dto => dto.Contrasena).NotEmpty()
+            RuleFor(dto => dto.Password).NotEmpty()
                                 .MaximumLength(256)
                                 .WithName(localizer["Password"]);
         }

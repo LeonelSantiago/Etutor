@@ -24,12 +24,12 @@ namespace Etutor.BL.Setup
             {
                 var entitySetConfiguration = builder.AddEntitySet(type.Name, builder.AddEntityType(type));
 
-                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("FechaCreacion"));
-                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("FechaModificacion"));
-                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("CreadoPor"));
-                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("EditadoPor"));
-                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("Borrado"));
-                if (type == typeof(Usuario))
+                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("CreatedAt"));
+                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("ModifiedAt"));
+                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("CreatedBy"));
+                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("ModifiedBy"));
+                entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("IsDeleted"));
+                if (type == typeof(User))
                 {
                     entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("PasswordHash"));
                     entitySetConfiguration.EntityType.RemoveProperty(type.GetProperty("SecurityStamp"));

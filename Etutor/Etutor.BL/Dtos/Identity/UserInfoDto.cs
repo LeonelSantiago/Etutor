@@ -1,6 +1,6 @@
 ﻿namespace Etutor.BL.Dtos.Identity
 {
-    public class UsuarioInfoDto
+    public class UserInfoDto
     {
         public int Id { get; set; }
         public string GivenName { get; set; }

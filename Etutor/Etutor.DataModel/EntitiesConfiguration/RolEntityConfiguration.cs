@@ -8,19 +8,19 @@ namespace Etutor.DataModel.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Rol> builder)
         {
-            builder.ToTable("Roles", "MGP");
+            builder.ToTable("Roles");
 
             builder.Property(e => e.Id)
-                .HasColumnName("RolId");
+                .HasColumnName("RoleId");
 
             builder.Property(e => e.Name)
-                .HasColumnName("Nombre");
+                .HasColumnName("Name");
 
             builder.Property(e => e.NormalizedName)
-                .HasColumnName("NombreNormalizado");
+                .HasColumnName("NormalizedName");
 
             builder.Property(e => e.ConcurrencyStamp)
-                .HasColumnName("SelloConcurrencia");
+                .HasColumnName("ConcurrencyStamp");
         }
     }
 }

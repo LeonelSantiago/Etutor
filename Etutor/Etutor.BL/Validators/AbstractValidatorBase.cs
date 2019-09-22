@@ -12,7 +12,7 @@ namespace Etutor.BL.Validators
         public AbstractValidatorBase(IStringLocalizer<ShareResource> localizer)
         {
             //validaciones genéricas
-            RuleFor(entity => entity.Estado).InEntityFields(localizer, typeof(EntityStatus), false)
+            RuleFor(entity => entity.Status).InEntityFields(localizer, typeof(EntityStatus), false)
                 .WithName(localizer["Status"]);
         }
     }

@@ -6,7 +6,7 @@ namespace Etutor.Core.Models
     {
         public string Message { get; set; }
         public CriticalLevel CriticalLevel { get; set; }
-        public OperationResult(string message, CriticalLevel criticalLevel = CriticalLevel.Warining)
+        public OperationResult(string message, CriticalLevel criticalLevel = CriticalLevel.Warning)
         {
             Message = message;
             CriticalLevel = criticalLevel;

@@ -16,7 +16,7 @@ namespace Etutor.DataModel
             var context = serviceProvider.GetService<ApplicationDbContext>();
             await context.Database.EnsureCreatedAsync();
 
-            var userManager = serviceProvider.GetService<UserManager<Usuario>>();
+            var userManager = serviceProvider.GetService<UserManager<User>>();
             if (!userManager.Users.Any())
             {
                 foreach (var usuario in UsuarioSample.Usuarios)

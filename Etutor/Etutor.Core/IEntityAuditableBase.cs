@@ -4,11 +4,11 @@ namespace Etutor.Core
 {
     public interface IEntityAuditableBase : IEntityBase
     {
-        DateTimeOffset FechaCreacion { get; set; }
-        DateTimeOffset? FechaModificacion { get; set; }
-        int CreadoPor { get; set; }
-        int? EditadoPor { get; set; }
-        string Estado { get; set; }
+        DateTimeOffset CreatedAt { get; set; }
+        DateTimeOffset? ModifiedAt { get; set; }
+        int CreatedBy { get; set; }
+        int? ModifiedBy { get; set; }
+        int Status { get; set; }
 
     }
 }

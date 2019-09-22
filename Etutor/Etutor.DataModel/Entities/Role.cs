@@ -4,54 +4,38 @@ using Etutor.Core;
 
 namespace Etutor.DataModel.Entities
 {
-    public partial class Usuario : IdentityUser<int>, IEntityAuditableBase
+    public partial class Rol : IdentityRole<int>, IEntityAuditableBase
     {
-        #region Ctor
-        public Usuario()
-        {
-
-        }
-        #endregion
-
-        #region Properties
-        [PersonalData]
-        public string Nombre { get; set; }
-        [PersonalData]
-        public string Apellido { get; set; }
-        public DateTime? UltimoAcceso { get; set; }
-
-        #endregion
-
         #region Campos auditables
         /// <summary>
         /// Propiedad de cadena que representa el estado.
         /// </summary>
-        public string Estado { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
         /// Propiedad boleana que representa si la entidad fue eliminada por el usuario.
         /// </summary>
-        public bool Borrado { get; set; }
+        public bool IsDeleted { get; set; }
 
         /// <summary>
         /// Propiedad de fecha que representa la fecha en que fue creada la entidad.
         /// </summary>
-        public DateTimeOffset FechaCreacion { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
 
         /// <summary>
         /// Propiedad de fecha que representa la última fecha en que fue modificada la entidad.
         /// </summary>
-        public DateTimeOffset? FechaModificacion { get; set; }
+        public DateTimeOffset? ModifiedAt { get; set; }
 
         /// <summary>
         /// Propiedad int que representa al usuario que creó la entidad.
         /// </summary>
-        public int CreadoPor { get; set; }
+        public int CreatedBy { get; set; }
 
         /// <summary>
         /// Propiedad int que representa al último usuario que modificó la entidad.
         /// </summary>
-        public int? EditadoPor { get; set; }
+        public int? ModifiedBy { get; set; }
         #endregion
     }
 }

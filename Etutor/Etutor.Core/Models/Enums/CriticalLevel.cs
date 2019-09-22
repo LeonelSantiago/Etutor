@@ -8,7 +8,7 @@ namespace Etutor.Core.Models.Enums
 {
     public enum CriticalLevel
     {
-        Warining = 1,
+        Warning = 1,
         Danger = 2
     }
 }

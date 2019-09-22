@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-
 namespace Etutor.DataModel.Entities
 {
-    public class UsuarioClaim : IdentityUserClaim<int>
+    public class UserToken : IdentityUserToken<int>
     {
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class UsuarioLoginEntityConfiguration : IEntityTypeConfiguration<UsuarioLogin>
+    public class UsuarioLoginEntityConfiguration : IEntityTypeConfiguration<UserLogin>
     {
         private readonly StoreOptions _storeOptions;
 
@@ -22,25 +22,25 @@ namespace Etutor.DataModel.EntitiesConfiguration
                     ?.Value?.Stores;
         }
 
-        public void Configure(EntityTypeBuilder<UsuarioLogin> builder)
+        public void Configure(EntityTypeBuilder<UserLogin> builder)
         {
             var maxKeyLength = _storeOptions?.MaxLengthForKeys ?? 0;
 
-            builder.ToTable("UsuarioLogins", "MA");
+            builder.ToTable("UsersLogins");
 
             builder.HasKey(l => new { l.LoginProvider, l.ProviderKey });
 
             builder.Property(e => e.LoginProvider)
-                .HasColumnName("ProveedorLogin");
+                .HasColumnName("LoginProvider");
 
             builder.Property(e => e.ProviderKey)
-                .HasColumnName("ClaveProveedor");
+                .HasColumnName("ProviderKey");
 
             builder.Property(e => e.ProviderDisplayName)
-                .HasColumnName("NombreProveedor");
+                .HasColumnName("ProviderDisplayName");
 
             builder.Property(e => e.UserId)
-                .HasColumnName("UsuarioId");
+                .HasColumnName("UserId");
 
             if (maxKeyLength > 0)
             {

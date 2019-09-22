@@ -4,23 +4,23 @@ using Etutor.DataModel.Entities;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class RolClaimEntityConfiguration : IEntityTypeConfiguration<RolClaim>
+    public class RolClaimEntityConfiguration : IEntityTypeConfiguration<RoleClaim>
     {
-        public void Configure(EntityTypeBuilder<RolClaim> builder)
+        public void Configure(EntityTypeBuilder<RoleClaim> builder)
         {
-            builder.ToTable("RolClaims", "MGP");
+            builder.ToTable("RolesClaims");
 
             builder.Property(e => e.Id)
-                .HasColumnName("RolClaimId");
+                .HasColumnName("RoleClaimId");
 
             builder.Property(e => e.RoleId)
-                .HasColumnName("RolId");
+                .HasColumnName("RoleId");
 
             builder.Property(e => e.ClaimType)
-                .HasColumnName("Tipo");
+                .HasColumnName("Type");
 
             builder.Property(e => e.ClaimValue)
-                .HasColumnName("Valor");
+                .HasColumnName("Value");
         }
     }
 }

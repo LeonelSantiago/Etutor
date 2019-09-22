@@ -10,17 +10,17 @@ using Etutor.BL.Resources;
 
 namespace Etutor.BL.Validators
 {
-    public class UsuarioValidator : AbstractValidatorBase<Usuario>
+    public class UsuarioValidator : AbstractValidatorBase<User>
     {
         public UsuarioValidator(ApplicationDbContext context,
                                 IStringLocalizer<ShareResource> localizer,
                                 IOptions<AdConfig> config) : base(localizer)
         {
-            RuleFor(entity => entity.Nombre).NotEmpty()
+            RuleFor(entity => entity.Name).NotEmpty()
                 .MaximumLength(256)
                 .WithName(localizer["Name"]);
 
-            RuleFor(entity => entity.Apellido).NotEmpty()
+            RuleFor(entity => entity.LastName).NotEmpty()
                 .MaximumLength(256)
                 .WithName(localizer["Last Name"]);
 

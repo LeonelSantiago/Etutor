@@ -5,51 +5,51 @@ namespace Etutor.DataModel.SampleData
 {
     public class UsuarioSample
     {
-        private static List<Usuario> _usuario;
+        private static List<User> _usuario;
 
         static UsuarioSample()
         {
             if (_usuario == null)
             {
-                Usuarios = new List<Usuario>()
+                Usuarios = new List<User>()
                 {
-                    new Usuario { Nombre = "Manuel Vladimir", Apellido = "Oleaga Begaso", Email = "manuel.oleaga@one.gob.do", UserName = "manuel.oleaga", LockoutEnabled = false },
-                    new Usuario { Nombre = "Jose Rafael", Apellido = "Aquino Balbuena", Email = "jose.aquino@one.gob.do", UserName = "jose.aquino", LockoutEnabled = false },
-                    new Usuario { Nombre = "Octavio", Apellido = "Suero", Email = "octavio.augusto@one.gob.do", UserName = "octavio.augusto", LockoutEnabled = false },
-                    new Usuario { Nombre = "Leonel", Apellido = "Santiago", Email = "leonel.santiago@one.gob.do", UserName = "leonel.santiago", LockoutEnabled = false },
-                    new Usuario { Nombre = "Ady", Apellido = "Taveras", Email = "ady.taveras@one.gob.do", UserName = "ady.taveras", LockoutEnabled = false },
-                    new Usuario { Nombre = "Christian", Apellido = "Marinelli", Email = "christian.marinelli@one.gob.do", UserName = "christian.marinelli", LockoutEnabled = false },
-                    new Usuario { Nombre = "Daniel", Apellido = "Mejía", Email = "daniel.mejia@one.gob.do", UserName = "daniel.mejia", LockoutEnabled = false },
-                    new Usuario { Nombre = "Danilo", Apellido = "Duarte", Email = "danilo.duarte@one.gob.do", UserName = "danilo.duarte", LockoutEnabled = false },
-                    new Usuario { Nombre = "Adriana", Apellido = "Adriana Henríquez", Email = "adriana.henriquez@one.gob.do", UserName = "adriana.henriquez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Aida", Apellido = "Aida Sánchez", Email = "aida.sanchez@one.gob.do", UserName = "aida.sanchez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Ambar", Apellido = "Quiñonez", Email = "aquinonez@adess.gob.do", UserName = "aquinonez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Amanda Tatiana", Apellido = "Forteza Collado", Email = "amanda.forteza@one.gob.do", UserName = "amanda.forteza", LockoutEnabled = false },
-                    new Usuario { Nombre = "Fernando", Apellido = "Medina", Email = "fernando.medina@one.gob.do", UserName = "fernando.medina", LockoutEnabled = false },
-                    new Usuario { Nombre = "Fiordaliza", Apellido = "Mateo Landa", Email = "Fiordaliza.Mateo@one.gob.do", UserName = "Fiordaliza.Mateo", LockoutEnabled = false },
-                    new Usuario { Nombre = "Francisco", Apellido = "Florencio Solis", Email = "Francisco.Florencio@one.gob.do", UserName = "Francisco.Florencio", LockoutEnabled = false },
-                    new Usuario { Nombre = "Francys", Apellido = "Rosario", Email = "francys.rosario@one.gob.do", UserName = "francys.rosari", LockoutEnabled = false },
-                    new Usuario { Nombre = "Francisco", Apellido = "Caceres Ureña", Email = "Francisco.Caceres@one.gob.do", UserName = "Francisco.Caceres", LockoutEnabled = false },
-                    new Usuario { Nombre = "Freddy", Apellido = "Perez", Email = "Freddy.Perez@one.gob.do", UserName = "Freddy.Perez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Gabriela", Apellido = "Ferreiras", Email = "gabriela.ferreiras@one.gob.do", UserName = "gabriela.ferreiras", LockoutEnabled = false },
-                    new Usuario { Nombre = "Hirma Isabel", Apellido = "Aponte Chapman", Email = "hirma.aponte@one.gob.do", UserName = "hirma.aponte", LockoutEnabled = false },
-                    new Usuario { Nombre = "Jeisy", Apellido = "Fermin", Email = "Jeisy.Fermin@one.gob.do", UserName = "", LockoutEnabled = false },
-                    new Usuario { Nombre = "Jessanin Diosmery", Apellido = "Frias Peña", Email = "Jessanin.Frias@one.gob.do", UserName = "Jessanin.Frias", LockoutEnabled = false },
-                    new Usuario { Nombre = "José Anibal", Apellido = "Jiménez Guillén", Email = "jose.jimenez@one.gob.do", UserName = "jose.jimenez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Mario EmiliO", Apellido = "Fernandez Cepeda", Email = "mario.fernandez@one.gob.do", UserName = "mario.fernandez", LockoutEnabled = false },
-                    new Usuario { Nombre = "Niurka", Apellido = "Figuereo", Email = "Niurka.Figuereo@one.gob.do", UserName = "Niurka.Figuereo", LockoutEnabled = false },
-                    new Usuario { Nombre = "Rikelvi", Apellido = "Fermin", Email = "rikelvi.fermin@one.gob.do", UserName = "rikelvi.fermin", LockoutEnabled = false },
-                    new Usuario { Nombre = "Robin", Apellido = "Ferreira", Email = "Robin.Ferreira@one.gob.do", UserName = "Robin.Ferreira", LockoutEnabled = false },
-                    new Usuario { Nombre = "Santiago", Apellido = "Farjat Bascón", Email = "sfarjat@ine.gob.bo", UserName = "sfarjat", LockoutEnabled = false },
-                    new Usuario { Nombre = "Ariel", Apellido = "Fermin", Email = "Ariel.Fermin@one.gob.do", UserName = "Ariel.Fermin", LockoutEnabled = false },
-                    new Usuario { Nombre = "Domingo", Apellido = "Fenton", Email = "Domingo.Fenton@one.gob.do", UserName = "Domingo.Fenton", LockoutEnabled = false },
-                    new Usuario { Nombre = "Darwin ErnestO", Apellido = "Florentino Beato", Email = "Darwin.Florentin@one.gob.doo", UserName = "Darwin.Florentin", LockoutEnabled = false },
-                    new Usuario { Nombre = "Florangel", Apellido = "Mora Arias", Email = "Florangel.Mora@one.gob.do", UserName = "Florangel.Mora", LockoutEnabled = false },
-                    new Usuario { Nombre = "Francis del Carmen", Apellido = "Abraham Almanzar", Email = "Francis.Abraham@one.gob.do", UserName = "Francis.Abraham", LockoutEnabled = false }
+                    new User { Name = "Manuel Vladimir", LastName = "Oleaga Begaso", Email = "manuel.oleaga@gmail.com", UserName = "manuel.oleaga", LockoutEnabled = false },
+                    new User { Name = "Jose Rafael", LastName = "Aquino Balbuena", Email = "jose.aquino@gmail.com", UserName = "jose.aquino", LockoutEnabled = false },
+                    new User { Name = "Octavio", LastName = "Suero", Email = "octavio.augusto@gmail.com", UserName = "octavio.augusto", LockoutEnabled = false },
+                    new User { Name = "Leonel", LastName = "Santiago", Email = "leonel.santiago@gmail.com", UserName = "leonel.santiago", LockoutEnabled = false },
+                    new User { Name = "Ady", LastName = "Taveras", Email = "ady.taveras@gmail.com", UserName = "ady.taveras", LockoutEnabled = false },
+                    new User { Name = "Christian", LastName = "Marinelli", Email = "christian.marinelli@gmail.com", UserName = "christian.marinelli", LockoutEnabled = false },
+                    new User { Name = "Daniel", LastName = "Mejía", Email = "daniel.mejia@gmail.com", UserName = "daniel.mejia", LockoutEnabled = false },
+                    new User { Name = "Danilo", LastName = "Duarte", Email = "danilo.duarte@gmail.com", UserName = "danilo.duarte", LockoutEnabled = false },
+                    new User { Name = "Adriana", LastName = "Adriana Henríquez", Email = "adriana.henriquez@gmail.com", UserName = "adriana.henriquez", LockoutEnabled = false },
+                    new User { Name = "Aida", LastName = "Aida Sánchez", Email = "aida.sanchez@gmail.com", UserName = "aida.sanchez", LockoutEnabled = false },
+                    new User { Name = "Ambar", LastName = "Quiñonez", Email = "aquinonez@adess.gob.do", UserName = "aquinonez", LockoutEnabled = false },
+                    new User { Name = "Amanda Tatiana", LastName = "Forteza Collado", Email = "amanda.forteza@gmail.com", UserName = "amanda.forteza", LockoutEnabled = false },
+                    new User { Name = "Fernando", LastName = "Medina", Email = "fernando.medina@gmail.com", UserName = "fernando.medina", LockoutEnabled = false },
+                    new User { Name = "Fiordaliza", LastName = "Mateo Landa", Email = "Fiordaliza.Mateo@gmail.com", UserName = "Fiordaliza.Mateo", LockoutEnabled = false },
+                    new User { Name = "Francisco", LastName = "Florencio Solis", Email = "Francisco.Florencio@gmail.com", UserName = "Francisco.Florencio", LockoutEnabled = false },
+                    new User { Name = "Francys", LastName = "Rosario", Email = "francys.rosario@gmail.com", UserName = "francys.rosari", LockoutEnabled = false },
+                    new User { Name = "Francisco", LastName = "Caceres Ureña", Email = "Francisco.Caceres@gmail.com", UserName = "Francisco.Caceres", LockoutEnabled = false },
+                    new User { Name = "Freddy", LastName = "Perez", Email = "Freddy.Perez@gmail.com", UserName = "Freddy.Perez", LockoutEnabled = false },
+                    new User { Name = "Gabriela", LastName = "Ferreiras", Email = "gabriela.ferreiras@gmail.com", UserName = "gabriela.ferreiras", LockoutEnabled = false },
+                    new User { Name = "Hirma Isabel", LastName = "Aponte Chapman", Email = "hirma.aponte@gmail.com", UserName = "hirma.aponte", LockoutEnabled = false },
+                    new User { Name = "Jeisy", LastName = "Fermin", Email = "Jeisy.Fermin@gmail.com", UserName = "", LockoutEnabled = false },
+                    new User { Name = "Jessanin Diosmery", LastName = "Frias Peña", Email = "Jessanin.Frias@gmail.com", UserName = "Jessanin.Frias", LockoutEnabled = false },
+                    new User { Name = "José Anibal", LastName = "Jiménez Guillén", Email = "jose.jimenez@gmail.com", UserName = "jose.jimenez", LockoutEnabled = false },
+                    new User { Name = "Mario EmiliO", LastName = "Fernandez Cepeda", Email = "mario.fernandez@gmail.com", UserName = "mario.fernandez", LockoutEnabled = false },
+                    new User { Name = "Niurka", LastName = "Figuereo", Email = "Niurka.Figuereo@gmail.com", UserName = "Niurka.Figuereo", LockoutEnabled = false },
+                    new User { Name = "Rikelvi", LastName = "Fermin", Email = "rikelvi.fermin@gmail.com", UserName = "rikelvi.fermin", LockoutEnabled = false },
+                    new User { Name = "Robin", LastName = "Ferreira", Email = "Robin.Ferreira@gmail.com", UserName = "Robin.Ferreira", LockoutEnabled = false },
+                    new User { Name = "Santiago", LastName = "Farjat Bascón", Email = "sfarjat@ine.gob.bo", UserName = "sfarjat", LockoutEnabled = false },
+                    new User { Name = "Ariel", LastName = "Fermin", Email = "Ariel.Fermin@gmail.com", UserName = "Ariel.Fermin", LockoutEnabled = false },
+                    new User { Name = "Domingo", LastName = "Fenton", Email = "Domingo.Fenton@gmail.com", UserName = "Domingo.Fenton", LockoutEnabled = false },
+                    new User { Name = "Darwin ErnestO", LastName = "Florentino Beato", Email = "Darwin.Florentin@gmail.como", UserName = "Darwin.Florentin", LockoutEnabled = false },
+                    new User { Name = "Florangel", LastName = "Mora Arias", Email = "Florangel.Mora@gmail.com", UserName = "Florangel.Mora", LockoutEnabled = false },
+                    new User { Name = "Francis del Carmen", LastName = "Abraham Almanzar", Email = "Francis.Abraham@gmail.com", UserName = "Francis.Abraham", LockoutEnabled = false }
                 };
             }
         }
 
-        public static List<Usuario> Usuarios { get => _usuario; set => _usuario = value; }
+        public static List<User> Usuarios { get => _usuario; set => _usuario = value; }
     }
 }

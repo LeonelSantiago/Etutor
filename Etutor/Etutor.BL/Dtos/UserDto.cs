@@ -2,10 +2,10 @@
 
 namespace Etutor.BL.Dtos
 {
-    public class UsuarioDto : IEntityBaseDto
+    public class UserDto : IEntityBaseDto
     {
         #region Ctor
-        public UsuarioDto()
+        public UserDto()
         {
 
         }
@@ -13,10 +13,10 @@ namespace Etutor.BL.Dtos
 
         #region Properties
         public int Id { get; set; }
-        public string Estado { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Contrasena { get; set; }
+        public int Status { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Password { get; set; }
 
         /*Identity fields*/
         public virtual string UserName { get; set; }

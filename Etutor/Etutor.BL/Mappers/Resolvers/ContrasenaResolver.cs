@@ -5,7 +5,7 @@ using Etutor.DataModel.Entities;
 
 namespace Etutor.BL.Mappers.Resolvers
 {
-    public class ContrasenaResolver : IValueResolver<Usuario, UsuarioDto, string>
+    public class ContrasenaResolver : IValueResolver<User, UserDto, string>
     {
         private IConfiguration _configuration;
 
@@ -14,7 +14,7 @@ namespace Etutor.BL.Mappers.Resolvers
             _configuration = configuration;
         }
 
-        public string Resolve(Usuario source, UsuarioDto destination, string destMember, ResolutionContext context)
+        public string Resolve(User source, UserDto destination, string destMember, ResolutionContext context)
         {
             return _configuration.GetValue<string>("SymbolPasswordRepresentation");
         }

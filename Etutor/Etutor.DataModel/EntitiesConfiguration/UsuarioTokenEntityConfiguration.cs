@@ -12,7 +12,7 @@ using System;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class UsuarioTokenEntityConfiguration : IEntityTypeConfiguration<UsuarioToken>
+    public class UsuarioTokenEntityConfiguration : IEntityTypeConfiguration<UserToken>
     {
         private readonly StoreOptions _storeOptions;
         private readonly Context.ApplicationDbContext _context;
@@ -25,26 +25,26 @@ namespace Etutor.DataModel.EntitiesConfiguration
                         ?.Value?.Stores;
             _context = context;
         }
-        public void Configure(EntityTypeBuilder<UsuarioToken> builder)
+        public void Configure(EntityTypeBuilder<UserToken> builder)
         {
             var maxKeyLength = _storeOptions?.MaxLengthForKeys ?? 0;
             var encryptPersonalData = _storeOptions?.ProtectPersonalData ?? false;
 
-            builder.ToTable("UsuarioTokens", "MA");
+            builder.ToTable("UsersTokens");
 
             builder.HasKey(t => new { t.UserId, t.LoginProvider, t.Name });
 
             builder.Property(e => e.UserId)
-                .HasColumnName("UsuarioId");
+                .HasColumnName("UserId");
 
             builder.Property(e => e.LoginProvider)
-                .HasColumnName("ProveedorLogin");
+                .HasColumnName("LoginProvider");
 
             builder.Property(e => e.Name)
-                .HasColumnName("Nombre");
+                .HasColumnName("Name");
 
             builder.Property(e => e.Value)
-                .HasColumnName("Valor");
+                .HasColumnName("Value");
 
             if (maxKeyLength > 0)
             {
@@ -57,7 +57,7 @@ namespace Etutor.DataModel.EntitiesConfiguration
             if (encryptPersonalData)
             {
                 var converter = new PersonalDataConverter(_context.GetService<IPersonalDataProtector>());
-                var tokenProps = typeof(UsuarioToken).GetProperties().Where(
+                var tokenProps = typeof(UserToken).GetProperties().Where(
                                 prop => Attribute.IsDefined(prop, typeof(ProtectedPersonalDataAttribute)));
                 foreach (var p in tokenProps)
                 {

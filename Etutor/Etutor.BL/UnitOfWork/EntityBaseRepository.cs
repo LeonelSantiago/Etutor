@@ -83,7 +83,7 @@ namespace Etutor.BL.UnitOfWork
             var entity = await FindAsync(key);
 
             EntityEntry dbEntityEntry = _context.Entry(entity);
-            entity.Borrado = true;
+            entity.IsDeleted = true;
             dbEntityEntry.State = EntityState.Modified;
         }
 

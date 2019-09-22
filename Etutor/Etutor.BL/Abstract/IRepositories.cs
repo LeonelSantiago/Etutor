@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Etutor.BL.Abstract
 {
-    public interface IUsuarioRepository : IEntityBaseRepository<Usuario>
+    public interface IUsuarioRepository : IEntityBaseRepository<User>
     {
-        Task<List<Claim>> GetClaimsAsync(Usuario entity);
-        Task<Usuario> FindByNameAsync(string userName);
-        Task<Usuario> FindAsync(int id);
-        Task AddAsync(Usuario value, string password);
-        Task UpdateAsync(Usuario value, string password);
-        Task UpdateAsync(Usuario entity);
+        Task<List<Claim>> GetClaimsAsync(User entity);
+        Task<User> FindByNameAsync(string userName);
+        Task<User> FindAsync(int id);
+        Task AddAsync(User value, string password);
+        Task UpdateAsync(User value, string password);
+        Task UpdateAsync(User entity);
         Task ChangePasswordAsync(string userName, string currentPassword, string newPassword);
     }
 }

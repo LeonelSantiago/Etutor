@@ -2,7 +2,7 @@
 
 namespace Etutor.DataModel.Entities
 {
-    public class UsuarioLogin : IdentityUserLogin<int>
+    public class UserLogin : IdentityUserLogin<int>
     {
     }
 }

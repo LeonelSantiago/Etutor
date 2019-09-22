@@ -20,7 +20,7 @@ namespace Etutor.Core.Extensions
         public static void SetSoftDeleteFilter<TEntity>(this ModelBuilder modelBuilder)
             where TEntity : class, IEntityAuditableBase
         {
-            modelBuilder.Entity<TEntity>().HasQueryFilter(x => !x.Borrado);
+            modelBuilder.Entity<TEntity>().HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }

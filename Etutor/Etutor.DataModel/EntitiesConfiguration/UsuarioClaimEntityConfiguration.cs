@@ -4,23 +4,23 @@ using Etutor.DataModel.Entities;
 
 namespace Etutor.DataModel.EntitiesConfiguration
 {
-    public class UsuarioClaimEntityConfiguration : IEntityTypeConfiguration<UsuarioClaim>
+    public class UsuarioClaimEntityConfiguration : IEntityTypeConfiguration<UserClaim>
     {
-        public void Configure(EntityTypeBuilder<UsuarioClaim> builder)
+        public void Configure(EntityTypeBuilder<UserClaim> builder)
         {
-            builder.ToTable("UsuarioClaims", "MA");
+            builder.ToTable("UsersClaims");
 
             builder.Property(e => e.Id)
                 .HasColumnName("UsuarioClaimId");
 
             builder.Property(e => e.UserId)
-                .HasColumnName("UsuarioId");
+                .HasColumnName("UserId");
 
             builder.Property(e => e.ClaimType)
-                .HasColumnName("Tipo");
+                .HasColumnName("ClaimType");
 
             builder.Property(e => e.ClaimValue)
-                .HasColumnName("Valor");
+                .HasColumnName("ClaimValue");
         }
     }
 }

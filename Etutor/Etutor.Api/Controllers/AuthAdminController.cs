@@ -20,21 +20,21 @@ using Etutor.BL.Resources;
 
 namespace Etutor.Api.Controllers
 {
-    [Route("AutenticacionAdmin")]
+    [Route("AuthenticationAdmin")]
     public class AuthAdminController : Controller
     {
         private readonly UnitOfWork _unitOfWork;
-        private readonly SignInManager<Usuario> _signInManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly LockoutOptions _lockoutOptions;
-        private readonly FluentValidation.IValidator<InicioSesionDto> _validatorIS;
+        private readonly FluentValidation.IValidator<LoginDto> _validatorIS;
         private readonly FluentValidation.IValidator<RestablecerContrasenaDto> _validatorRC;
         private readonly IStringLocalizer<ShareResource> _localizer;
         private readonly ITokenGeneratorService _tokenGeneratorService;
         private readonly IMapper _mapper;
 
         public AuthAdminController(UnitOfWork unitOfWork,
-                                SignInManager<Usuario> signInManager,
-                                FluentValidation.IValidator<InicioSesionDto> validatorIS,
+                                SignInManager<User> signInManager,
+                                FluentValidation.IValidator<LoginDto> validatorIS,
                                 FluentValidation.IValidator<RestablecerContrasenaDto> validatorRC,
                                 IStringLocalizer<ShareResource> localizer,
                                 ITokenGeneratorService tokenGeneratorService,
@@ -51,16 +51,16 @@ namespace Etutor.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost("InicioSesion")]
-        public async Task<IActionResult> Login([FromBody] InicioSesionDto model)
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
-            if (model == null) throw new ArgumentNullException(typeof(InicioSesionDto).GetCleanNameFromDto());
+            if (model == null) throw new ArgumentNullException(typeof(LoginDto).GetCleanNameFromDto());
             else if (!_validatorIS.Validate(model).IsValid) throw new ValidationException(_validatorIS.Validate(model).Errors.ToMessage());
 
-            var appUser = await _unitOfWork.UsuarioRepository.FindByNameAsync(model.Usuario.Split('@')[0]);
-            if (appUser.Estado == EntityStatus.Inactivo) throw new ValidationException("Disabled user, contact administrator to obtain more information.", true);
+            var appUser = await _unitOfWork.UsuarioRepository.FindByNameAsync(model.User.Split('@')[0]);
+            if (appUser.Status == EntityStatus.Inactive) throw new ValidationException("Disabled user, contact administrator to obtain more information.", true);
 
-            var signInResult = await _signInManager.PasswordSignInAsync(appUser.UserName, model.Contrasena, isPersistent: false, lockoutOnFailure: true);
+            var signInResult = await _signInManager.PasswordSignInAsync(appUser.UserName, model.Password, isPersistent: false, lockoutOnFailure: true);
             if (signInResult.IsLockedOut) throw new ValidationException(string.Format(_localizer["User blocked by failed attempts, try again after {0} minutes."], _lockoutOptions.DefaultLockoutTimeSpan.Minutes));
             bool isValid = signInResult.Succeeded;
 
@@ -69,15 +69,15 @@ namespace Etutor.Api.Controllers
             var claims = await _unitOfWork.UsuarioRepository.GetClaimsAsync(appUser);
             var payload = new
             {
-                token = _tokenGeneratorService.GenerateJwtToken($"{appUser.Nombre} {appUser.Apellido}", appUser, claims),
-                changePassword = !appUser.UltimoAcceso.HasValue,
-                user = _mapper.Map<UsuarioDto>(appUser),
+                token = _tokenGeneratorService.GenerateJwtToken($"{appUser.Name} {appUser.LastName}", appUser, claims),
+                changePassword = !appUser.LastAccess.HasValue,
+                user = _mapper.Map<UserDto>(appUser),
 
             };
 
-            if (appUser.UltimoAcceso.HasValue)
+            if (appUser.LastAccess.HasValue)
             {
-                appUser.UltimoAcceso = DateTime.Now;
+                appUser.LastAccess = DateTime.Now;
                 await _unitOfWork.UsuarioRepository.UpdateAsync(appUser);
             }
 
@@ -85,7 +85,7 @@ namespace Etutor.Api.Controllers
         }
 
         [Authorize]
-        [HttpPost("RefrescarToken")]
+        [HttpPost("RefreshToken")]
         public async Task<IActionResult> RefreshToken()
         {
             var userName = User.Claims.Where(c => c.Type.Contains(ClaimTypes.Name)).Select(c => c.Value).FirstOrDefault();
@@ -94,11 +94,11 @@ namespace Etutor.Api.Controllers
             var appUser = await _unitOfWork.UsuarioRepository.FindByNameAsync(userName);
 
             var claims = await _unitOfWork.UsuarioRepository.GetClaimsAsync(appUser);
-            return Ok(_tokenGeneratorService.GenerateJwtToken($"{appUser.Nombre} {appUser.Apellido}", appUser, claims));
+            return Ok(_tokenGeneratorService.GenerateJwtToken($"{appUser.Name} {appUser.LastName}", appUser, claims));
         }
 
         [Authorize]
-        [HttpPost("RestablecerContrasena")]
+        [HttpPost("RestorePassword")]
         public async Task<IActionResult> ResetPassword([FromBody] RestablecerContrasenaDto model)
         {
             if (model == null) throw new ArgumentNullException(typeof(RestablecerContrasenaDto).GetCleanNameFromDto());
@@ -107,7 +107,7 @@ namespace Etutor.Api.Controllers
             var userName = User.Claims.Where(c => c.Type.Contains(ClaimTypes.Name)).Select(c => c.Value).FirstOrDefault();
             if (userName == null) throw new ValidationException("Invalid change password attempt.", true);
 
-            await _unitOfWork.UsuarioRepository.ChangePasswordAsync(userName, model.Contrasena, model.NuevaContrasena);
+            await _unitOfWork.UsuarioRepository.ChangePasswordAsync(userName, model.Password, model.NewPassword);
 
             return Ok();
         }

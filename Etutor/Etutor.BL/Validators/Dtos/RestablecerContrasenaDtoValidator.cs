@@ -9,17 +9,17 @@ namespace Etutor.BL.Validators.Dtos
     {
         public RestablecerContrasenaDtoValidator(IStringLocalizer<ShareResource> localizer)
         {
-            RuleFor(dto => dto.Contrasena).NotEmpty()
+            RuleFor(dto => dto.Password).NotEmpty()
                                     .MaximumLength(256)
                                     .WithName(localizer["Password"]);
 
-            RuleFor(dto => dto.NuevaContrasena).NotEmpty()
+            RuleFor(dto => dto.NewPassword).NotEmpty()
                                     .MaximumLength(256)
                                     .WithName(localizer["New Password"]);
 
-            RuleFor(dto => dto.ConfirmarContrasena).NotEmpty()
+            RuleFor(dto => dto.ConfirmPassword).NotEmpty()
                                     .MaximumLength(256)
-                                    .Equal(dto => dto.NuevaContrasena)
+                                    .Equal(dto => dto.NewPassword)
                                     .WithName(localizer["Confirm Password"]);
         }
     }

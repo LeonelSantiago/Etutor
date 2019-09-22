@@ -108,11 +108,11 @@ namespace Etutor.Api
             #region Identity, Json Web Token, Auth
 
             // Register the Identity services.
-            services.AddIdentity<Usuario, Rol>()
+            services.AddIdentity<User, Rol>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddErrorDescriber<CustomIdentityErrorDescriber>()
-                .AddUserStore<UserStore<Usuario, Rol, ApplicationDbContext, int, UsuarioClaim, UsuarioRol, UsuarioLogin, UsuarioToken, RolClaim>>()
-                .AddRoleStore<RoleStore<Rol, ApplicationDbContext, int, UsuarioRol, RolClaim>>()
+                .AddUserStore<UserStore<User, Rol, ApplicationDbContext, int, UserClaim, UserRole, UserLogin, UserToken, RoleClaim>>()
+                .AddRoleStore<RoleStore<Rol, ApplicationDbContext, int, UserRole, RoleClaim>>()
                 .AddDefaultTokenProviders();
 
 

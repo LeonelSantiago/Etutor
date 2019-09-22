@@ -13,12 +13,12 @@ using Etutor.Core.Extensions;
 
 namespace Etutor.Api.Controllers.Api
 {
-    [Area("Authorizacion")]
-    public class UsuarioController : ApplicationBaseApiController<Usuario, UsuarioDto>
+    [Area("Authorization")]
+    public class UserController : ApplicationBaseApiController<User, UserDto>
     {
         protected readonly IConfiguration _configuration;
 
-        public UsuarioController(UnitOfWork unitOfWork,
+        public UserController(UnitOfWork unitOfWork,
                                 IConfiguration configuration,
                                 IMapper mapper)
             : base(unitOfWork, mapper)
@@ -29,12 +29,12 @@ namespace Etutor.Api.Controllers.Api
         // POST api/values/
         [RequiresPermissionFilter(OperationsPermission.Create)]
         [HttpPost]
-        public override async Task<IActionResult> Post([FromBody] UsuarioDto dto)
+        public override async Task<IActionResult> Post([FromBody] UserDto dto)
         {
-            if (dto == null) throw new ArgumentNullException(typeof(UsuarioDto).GetCleanNameFromDto());
+            if (dto == null) throw new ArgumentNullException(typeof(UserDto).GetCleanNameFromDto());
 
-            var model = _mapper.Map<Usuario>(dto);
-            await _unitOfWork.UsuarioRepository.AddAsync(model, dto.Contrasena);
+            var model = _mapper.Map<User>(dto);
+            await _unitOfWork.UsuarioRepository.AddAsync(model, dto.Password);
             //await _userEmailNotificacionService.UserModificationNotification(dto, TipoCorreo.CreacionUsuario);
 
             return Ok(_mapper.Map(model, dto));
@@ -42,13 +42,13 @@ namespace Etutor.Api.Controllers.Api
 
         [RequiresPermissionFilter(OperationsPermission.Update)]
         [HttpPut("{key}")]
-        public override async Task<IActionResult> Put([FromODataUri] int key, [FromBody] UsuarioDto dto)
+        public override async Task<IActionResult> Put([FromODataUri] int key, [FromBody] UserDto dto)
         {
-            if (dto == null) throw new ArgumentNullException(typeof(UsuarioDto).GetCleanNameFromDto());
+            if (dto == null) throw new ArgumentNullException(typeof(UserDto).GetCleanNameFromDto());
 
             var model = await _unitOfWork.UsuarioRepository.FindAsync(key);
             model = _mapper.Map(dto, model);
-            await _unitOfWork.UsuarioRepository.UpdateAsync(model, dto.Contrasena);
+            await _unitOfWork.UsuarioRepository.UpdateAsync(model, dto.Password);
 
             return Updated(_mapper.Map(model, dto));
         }

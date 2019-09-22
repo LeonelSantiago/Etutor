@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Etutor.DataModel.Context
 {
-    public class ApplicationDbContext : IdentityDbContext<Usuario, Rol, int, UsuarioClaim, UsuarioRol, UsuarioLogin, RolClaim, UsuarioToken>
+    public class ApplicationDbContext : IdentityDbContext<User, Rol, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -107,16 +107,16 @@ namespace Etutor.DataModel.Context
             {
                 if (entry.State == EntityState.Added) // If the entity was added.
                 {
-                    entry.Entity.CreadoPor = userId;
-                    entry.Entity.FechaCreacion = DateTime.Now;
-                    entry.Entity.Estado = EntityStatus.Activo;
+                    entry.Entity.CreatedBy = userId;
+                    entry.Entity.CreatedAt = DateTime.Now;
+                    entry.Entity.Status = EntityStatus.Active;
                 }
                 else if (entry.State == EntityState.Modified) // If the entity was updated
                 {
-                    entry.Entity.EditadoPor = userId;
-                    entry.Entity.FechaModificacion = DateTime.Now;
-                    Entry(entry.Entity).Property(x => x.FechaCreacion).IsModified = false;
-                    Entry(entry.Entity).Property(x => x.CreadoPor).IsModified = false;
+                    entry.Entity.ModifiedBy = userId;
+                    entry.Entity.ModifiedAt = DateTime.Now;
+                    Entry(entry.Entity).Property(x => x.CreatedAt).IsModified = false;
+                    Entry(entry.Entity).Property(x => x.CreatedBy).IsModified = false;
                 }
             }
         }
