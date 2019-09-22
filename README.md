@@ -4,10 +4,20 @@ Official repository for the web version of E-Tutor.
 Here will be worked all the web based features of the product.
 
 ## Requeriments
-- Visual Studio 2017
+- Recommended Visual Studio 2017 / Prefered text editor 
 - .NET Core SDK 2.2.2 and 2.2.1 installed
 - SQL Server
 
+## Getting Started
+
+Once all of the requirements are done the next steps are:
+- Clone the project into your enviroment
+- Check that the database instance specified in the connection string of the appsettings.json **(Etutor.API project)** is valid in your SQL Server. If not use the instance you like :)
+- Set Etutor.API Project as Startup project. You can do this right clicking the project in the solution explorer and the selecting "Set as Startup project". You need to do this to let it know to your IDE that the project that will run and the load the class libraries is the Etutor.API.
+- RUN THE APPLICATION!
+- Wait... Some... Seconds... Because the IDE is creating the database (Is there's not an error).
+- If you see the swagger UI it means the database is created successfully.
+- Go to SQL Server and check if the database is created. If it is, then you're started. Welcome!
 
 # Git workflow
 
