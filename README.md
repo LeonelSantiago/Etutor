@@ -4,9 +4,10 @@ Official repository for the web version of E-Tutor.
 Here will be worked all the web based features of the product.
 
 ## Requeriments
-- Recommended Visual Studio 2017 / Prefered text editor 
+- Recommended Visual Studio 2017 or Higher / Prefered text editor 
 - .NET Core SDK 2.2.2 and 2.2.1 installed
-- SQL Server
+- SQL Server Management 2017 or Higher
+- SQL Server Local DB instance
 
 ## Getting Started
 
@@ -23,10 +24,8 @@ Once all of the requirements are done the next steps are:
 
 ## Al iniciar HU
 
-- Crea una nueva rama
-- git checkout -b primer-nombre-primer-apellido/numero-hu-tfs/descripción-corta development
-- Ejemplo
-git checkout -b juan-perez/14/eje-estrategico-admin development
+- Create a new branch
+- git checkout -b item-type/item-number-and-title development e.g. git checkout -b feature/15-style-fix development
 
 ## Mientras trabajas HU
  
