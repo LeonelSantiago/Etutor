@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Etutor.BL.Abstract
 {
-    public interface IUsuarioRepository : IEntityBaseRepository<User>
+    public interface IUserRepository : IEntityBaseRepository<User>
     {
         Task<List<Claim>> GetClaimsAsync(User entity);
         Task<User> FindByNameAsync(string userName);
@@ -15,5 +15,12 @@ namespace Etutor.BL.Abstract
         Task UpdateAsync(User value, string password);
         Task UpdateAsync(User entity);
         Task ChangePasswordAsync(string userName, string currentPassword, string newPassword);
+    }
+
+    public interface IEventsRepository : IEntityBaseRepository<Events>
+    {
+        Task<Events> FindAsync(int id);
+        Task AddAsync(Events events);
+        Task UpdateAsync(Events events);
     }
 }

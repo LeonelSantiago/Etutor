@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Etutor.Api.Controllers.Api
 {
-    [Area("Authorization")]
+    //[Area("Authorization")]
     public class EventsController : ApplicationBaseApiController<Events, EventsDto>
     {
         protected readonly IConfiguration _configuration;
@@ -29,28 +29,28 @@ namespace Etutor.Api.Controllers.Api
         }
 
         // POST api/values/
-        [RequiresPermissionFilter(OperationsPermission.Create)]
+        //[RequiresPermissionFilter(OperationsPermission.Create)]
         [HttpPost]
         public override async Task<IActionResult> Post([FromBody] EventsDto dto)
         {
             if (dto == null) throw new ArgumentNullException(typeof(UserDto).GetCleanNameFromDto());
 
-            var model = _mapper.Map<User>(dto);
-            //await _unitOfWork.UsuarioRepository.AddAsync(model, dto.Password);
+            var model = _mapper.Map<Events>(dto);
+            await _unitOfWork.EventsRepository.AddAsync(model);
             //await _userEmailNotificacionService.UserModificationNotification(dto, TipoCorreo.CreacionUsuario);
 
             return Ok(_mapper.Map(model, dto));
         }
 
-        [RequiresPermissionFilter(OperationsPermission.Update)]
+        //[RequiresPermissionFilter(OperationsPermission.Update)]
         [HttpPut("{key}")]
         public override async Task<IActionResult> Put([FromODataUri] int key, [FromBody] EventsDto dto)
         {
-            if (dto == null) throw new ArgumentNullException(typeof(UserDto).GetCleanNameFromDto());
+            if (dto == null) throw new ArgumentNullException(typeof(EventsDto).GetCleanNameFromDto());
 
-            var model = await _unitOfWork.UsuarioRepository.FindAsync(key);
+            var model = await _unitOfWork.EventsRepository.FindAsync(key);
             model = _mapper.Map(dto, model);
-            //await _unitOfWork.UsuarioRepository.UpdateAsync(model, dto.Password);
+            await _unitOfWork.EventsRepository.UpdateAsync(model);
 
             return Updated(_mapper.Map(model, dto));
         }

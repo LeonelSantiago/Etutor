@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace Etutor.BL.UnitOfWork.Repositories
 {
-    public class UsuarioRepository : EntityBaseRepository<User>, IUsuarioRepository
+    public class UserRepository : EntityBaseRepository<User>, IUserRepository
     {
         protected readonly ApplicationDbContext _context;
         protected readonly UserManager<User> _userManager;
         protected readonly IConfiguration _configuration;
 
-        public UsuarioRepository(ApplicationDbContext context,
+        public UserRepository(ApplicationDbContext context,
                                  UserManager<User> userManager,
                                 FluentValidation.IValidator<User> validator,
                                 IConfiguration configuration)

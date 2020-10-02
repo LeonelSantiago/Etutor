@@ -22,8 +22,6 @@ namespace Etutor.DataModel.Context
         }
 
 
-
-
         #region OnModelCreating
         /// <summary>
         /// Override OnModelCreating so we can perform operations on the ModelBuilder object.
@@ -62,7 +60,7 @@ namespace Etutor.DataModel.Context
         /// <returns></returns>
         public override int SaveChanges()
         {
-            this.AuditEntities();
+            AuditEntities();
 
             return base.SaveChanges();
         }
@@ -75,7 +73,7 @@ namespace Etutor.DataModel.Context
         /// <returns></returns>
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            this.AuditEntities();
+            AuditEntities();
 
             return base.SaveChangesAsync(cancellationToken);
         }

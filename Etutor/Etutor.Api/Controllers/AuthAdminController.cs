@@ -27,7 +27,7 @@ namespace Etutor.Api.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly LockoutOptions _lockoutOptions;
         private readonly FluentValidation.IValidator<LoginDto> _validatorIS;
-        private readonly FluentValidation.IValidator<RestablecerContrasenaDto> _validatorRC;
+        private readonly FluentValidation.IValidator<RestorePasswordDto> _validatorRC;
         private readonly IStringLocalizer<ShareResource> _localizer;
         private readonly ITokenGeneratorService _tokenGeneratorService;
         private readonly IMapper _mapper;
@@ -35,7 +35,7 @@ namespace Etutor.Api.Controllers
         public AuthAdminController(UnitOfWork unitOfWork,
                                 SignInManager<User> signInManager,
                                 FluentValidation.IValidator<LoginDto> validatorIS,
-                                FluentValidation.IValidator<RestablecerContrasenaDto> validatorRC,
+                                FluentValidation.IValidator<RestorePasswordDto> validatorRC,
                                 IStringLocalizer<ShareResource> localizer,
                                 ITokenGeneratorService tokenGeneratorService,
                                 IOptions<LockoutOptions> options,
@@ -99,9 +99,9 @@ namespace Etutor.Api.Controllers
 
         [Authorize]
         [HttpPost("RestorePassword")]
-        public async Task<IActionResult> ResetPassword([FromBody] RestablecerContrasenaDto model)
+        public async Task<IActionResult> ResetPassword([FromBody] RestorePasswordDto model)
         {
-            if (model == null) throw new ArgumentNullException(typeof(RestablecerContrasenaDto).GetCleanNameFromDto());
+            if (model == null) throw new ArgumentNullException(typeof(RestorePasswordDto).GetCleanNameFromDto());
             else if (!_validatorRC.Validate(model).IsValid) throw new ValidationException(_validatorRC.Validate(model).Errors.ToMessage());
 
             var userName = User.Claims.Where(c => c.Type.Contains(ClaimTypes.Name)).Select(c => c.Value).FirstOrDefault();

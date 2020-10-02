@@ -5,7 +5,7 @@ using Etutor.BL.Resources;
 
 namespace Etutor.BL.Validators.Dtos
 {
-    public class RestablecerContrasenaDtoValidator : AbstractValidator<RestablecerContrasenaDto>
+    public class RestablecerContrasenaDtoValidator : AbstractValidator<RestorePasswordDto>
     {
         public RestablecerContrasenaDtoValidator(IStringLocalizer<ShareResource> localizer)
         {

@@ -37,7 +37,10 @@ namespace Etutor.BL.UnitOfWork
             }
         }
 
-        private IUsuarioRepository _usuarioRepository;
-        public IUsuarioRepository UsuarioRepository => _usuarioRepository ?? (_usuarioRepository = _container.GetInstance<UsuarioRepository>());
+        private IUserRepository _usuarioRepository;
+        public IUserRepository UsuarioRepository => _usuarioRepository ?? (_usuarioRepository = _container.GetInstance<UserRepository>());
+
+        private IEventsRepository _eventsRepository;
+        public IEventsRepository EventsRepository => _eventsRepository ?? (_eventsRepository = _container.GetInstance<EventsRepository>());
     }
 }

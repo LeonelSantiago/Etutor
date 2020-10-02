@@ -1,6 +1,6 @@
 ﻿namespace Etutor.BL.Dtos.Identity
 {
-    public class RestablecerContrasenaDto
+    public class RestorePasswordDto
     {
         public string Password { get; set; }
         public string NewPassword { get; set; }
